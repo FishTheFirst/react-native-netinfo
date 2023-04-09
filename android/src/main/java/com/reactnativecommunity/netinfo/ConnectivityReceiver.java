@@ -8,6 +8,7 @@ package com.reactnativecommunity.netinfo;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
+import android.net.DhcpInfo;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.telephony.TelephonyManager;
@@ -213,6 +214,7 @@ public abstract class ConnectivityReceiver {
             case "wifi":
                 if (NetInfoUtils.isAccessWifiStatePermissionGranted(getReactContext()) && mWifiManager != null) {
                     WifiInfo wifiInfo = mWifiManager.getConnectionInfo();
+                    DhcpInfo dhcpInfo = mWifiManager.getDhcpInfo();
                     if (wifiInfo != null) {
                         // Get the SSID
                         try {
@@ -306,6 +308,20 @@ public abstract class ConnectivityReceiver {
                                         wifiInfo.getTxLinkSpeedMbps();
                                 details.putInt("txLinkSpeed", txLinkSpeed);
                             }
+                        } catch (Exception e) {
+                            // Ignore errors
+                        }
+                    }
+                    if(dhcpInfo !=null)
+                    {
+                        // Get the gateway IP address
+                        try {
+                            byte[] ipAddressByteArray =
+                                    BigInteger.valueOf(dhcpInfo.gateway).toByteArray();
+                            NetInfoUtils.reverseByteArray(ipAddressByteArray);
+                            InetAddress inetAddress = InetAddress.getByAddress(ipAddressByteArray);
+                            String ipAddress = inetAddress.getHostAddress();
+                            details.putString("gateway", ipAddress);
                         } catch (Exception e) {
                             // Ignore errors
                         }

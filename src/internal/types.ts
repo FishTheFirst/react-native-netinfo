@@ -83,6 +83,7 @@ export type NetInfoWifiState = NetInfoConnectedState<
     linkSpeed: number | null;
     rxLinkSpeed: number | null;
     txLinkSpeed: number | null;
+    gateway: string | null;
   }
 >;
 export type NetInfoBluetoothState = NetInfoConnectedState<

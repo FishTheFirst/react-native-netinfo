@@ -195,6 +195,7 @@ const getCurrentState = (
         linkSpeed: null,
         rxLinkSpeed: null,
         txLinkSpeed: null,
+        gateway: null,
       },
     };
     return state;
