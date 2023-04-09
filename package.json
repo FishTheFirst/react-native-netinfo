@@ -1,5 +1,5 @@
 {
-  "name": "@efpo/netinfo",
+  "name": "efpo-netinfo",
   "version": "9.3.9",
   "description": "Fork of React Native Network Info API for iOS & Android",
   "react-native": "src/index.ts",
