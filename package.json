@@ -1,5 +1,5 @@
 {
-  "name": "@react-native-community/netinfo",
+  "name": "@efpo/netinfo",
   "version": "9.3.9",
   "description": "Fork of React Native Network Info API for iOS & Android",
   "react-native": "src/index.ts",
@@ -22,7 +22,7 @@
     "Mike Diarmid (Salakar) <mike@invertase.io>",
     "Emanuel Oliveira"
   ],
-  "homepage": "https://github.com/react-native-netinfo/react-native-netinfo#readme",
+  "homepage": "https://github.com/FishTheFirst/react-native-netinfo#readme",
   "license": "MIT",
   "scripts": {
     "start": "react-native start",
